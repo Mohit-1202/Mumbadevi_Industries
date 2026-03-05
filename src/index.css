@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
+
+@theme {
+  --color-primary: #0B74B8;
+  --color-primary-dark: #0A3D62;
+  --color-primary-light: #5DADE2;
+  --color-accent: #1ABCFE;
+
+  --color-bg-light: #F4F6F8;
+  --color-text-dark: #1F2933;
+  --color-text-muted: #6B7280;
+
+  --color-dark-bg: #0B1220;
+  --color-dark-card: #111827;
+  --color-dark-text: #E5E7EB;
+  --color-dark-accent: #38BDF8;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #1F2933;
+  --card-bg: #FFFFFF;
+  --card-border: #F0F4F8;
+  --section-bg: #F4F6F8;
+  --primary: #0B74B8;
+  --text-muted: #6B7280;
+}
+
+[data-theme='dark'] {
+  --background: #0B1220;
+  --foreground: #E5E7EB;
+  --card-bg: #111827;
+  --card-border: #1F2937;
+  --section-bg: #0B1220;
+  --primary: #38BDF8;
+  --text-muted: #9CA3AF;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(11, 116, 184, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(135deg, rgba(11, 116, 184, 0.08) 0%, rgba(11, 18, 32, 1) 100%);
+}
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  @apply border border-slate-200/60 dark:border-white/5;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+  @apply border-primary/30;
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+}
+
+.section-padding {
+  @apply py-28 px-6;
+}
+
+.glass-nav {
+  @apply backdrop-blur-xl bg-white/90 dark:bg-dark-bg/90 border-b border-slate-200/50 dark:border-white/5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg-light dark:bg-dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 hover:bg-primary/40 rounded-full transition-colors;
+}
