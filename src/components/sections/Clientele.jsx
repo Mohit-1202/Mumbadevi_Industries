@@ -13,38 +13,38 @@ const StatBar = ({ label, value, color, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white dark:bg-dark-card p-10 rounded-[2.5rem] border border-slate-100 dark:border-primary/10 shadow-sm flex flex-col items-center text-center group card-hover"
+            className="bg-white dark:bg-dark-card p-6 lg:p-10 rounded-[2.5rem] border border-slate-100 dark:border-primary/10 shadow-sm flex flex-col items-center text-center group card-hover"
         >
-            <div className="relative w-32 h-32 mb-8 group-hover:scale-110 transition-transform duration-500">
+            <div className="relative w-24 h-24 lg:w-32 lg:h-32 mb-6 lg:mb-8 group-hover:scale-110 transition-transform duration-500">
                 <svg className="w-full h-full transform -rotate-90">
                     <circle
-                        cx="64"
-                        cy="64"
-                        r="54"
+                        cx="50%"
+                        cy="50%"
+                        r="40%"
                         stroke="currentColor"
                         strokeWidth="8"
                         fill="transparent"
                         className="text-slate-50 dark:text-slate-800/50"
                     />
                     <motion.circle
-                        cx="64"
-                        cy="64"
-                        r="54"
+                        cx="50%"
+                        cy="50%"
+                        r="40%"
                         stroke="#0B74B8"
                         strokeWidth="10"
                         fill="transparent"
-                        strokeDasharray="339.29"
-                        initial={{ strokeDashoffset: 339.29 }}
-                        animate={isInView ? { strokeDashoffset: 339.29 - (339.29 * value) / 100 } : {}}
+                        strokeDasharray="251.2"
+                        initial={{ strokeDashoffset: 251.2 }}
+                        animate={isInView ? { strokeDashoffset: 251.2 - (251.2 * value) / 100 } : {}}
                         transition={{ duration: 2, ease: "circOut" }}
                         strokeLinecap="round"
                     />
                 </svg>
-                <div className="absolute inset-0 flex items-center justify-center font-black text-2xl text-slate-900 dark:text-white font-heading">
+                <div className="absolute inset-0 flex items-center justify-center font-black text-xl lg:text-2xl text-slate-900 dark:text-white font-heading">
                     {value}%
                 </div>
             </div>
-            <h4 className="text-sm font-black uppercase tracking-widest text-primary/60 font-heading mb-2">{label}</h4>
+            <h4 className="text-xs lg:text-sm font-black uppercase tracking-widest text-primary/60 font-heading mb-2">{label}</h4>
             <div className="w-8 h-1 bg-primary/20 rounded-full group-hover:w-16 transition-all duration-500" />
         </motion.div>
     );
@@ -62,11 +62,11 @@ const Clientele = () => {
     return (
         <Section id="clients">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-20 px-6">
-                    <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+                <div className="text-center mb-12 lg:mb-20 px-6">
+                    <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                         Market Presence
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
                         Sector Wise <span className="text-primary">Impact</span>
                     </h2>
                 </div>

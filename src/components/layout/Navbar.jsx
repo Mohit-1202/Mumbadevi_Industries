@@ -71,8 +71,8 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Mobile Toggle */}
-                <div className="md:hidden flex items-center gap-4">
+            {/* Mobile Toggle */}
+                <div className="md:hidden flex items-center gap-4 relative z-[70]">
                     <button onClick={toggleTheme} className="text-slate-500 dark:text-slate-400">
                         {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
                     </button>
@@ -86,30 +86,58 @@ const Navbar = () => {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-[#0B1220] border-t border-slate-100 dark:border-slate-800"
+                        initial={{ opacity: 0, y: '-100%' }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: '-100%', transition: { duration: 0.5, ease: "easeInOut" } }}
+                        transition={{ type: "spring", bounce: 0, duration: 0.6 }}
+                        className="md:hidden fixed inset-0 z-[60] bg-[var(--background)]/95 backdrop-blur-3xl flex flex-col justify-center items-center overflow-hidden"
                     >
-                        <div className="flex flex-col p-6 space-y-4">
+                        {/* Decorative Background Elements */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+                        <motion.div
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            variants={{
+                                open: {
+                                    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+                                },
+                                closed: {
+                                    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+                                }
+                            }}
+                            className="flex flex-col items-center justify-center space-y-8 w-full relative z-10"
+                        >
                             {navLinks.map((link) => (
-                                <a
+                                <motion.a
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-lg font-bold text-slate-800 dark:text-slate-200"
+                                    variants={{
+                                        open: { opacity: 1, y: 0, scale: 1 },
+                                        closed: { opacity: 0, y: 40, scale: 0.95 }
+                                    }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                    className="text-3xl sm:text-4xl font-black text-slate-800 dark:text-slate-200 font-heading uppercase tracking-widest hover:text-primary transition-colors text-center"
                                 >
                                     {link.name}
-                                </a>
+                                </motion.a>
                             ))}
-                            <a
+                            <motion.a
                                 href="#contact"
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="bg-[#0B74B8] text-white p-3 rounded-md text-center font-bold"
+                                variants={{
+                                    open: { opacity: 1, scale: 1, y: 0 },
+                                    closed: { opacity: 0, scale: 0.9, y: 20 }
+                                }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                className="bg-primary text-white px-12 py-4 rounded-xl text-lg font-bold mt-4 shadow-xl shadow-primary/20 text-center uppercase tracking-widest"
                             >
                                 Inquire Now
-                            </a>
-                        </div>
+                            </motion.a>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

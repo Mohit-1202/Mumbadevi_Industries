@@ -49,58 +49,61 @@
   --text-muted: #9CA3AF;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  margin: 0;
-  overflow-x: hidden;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--foreground);
+    letter-spacing: -0.02em;
+  }
 }
 
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(11, 116, 184, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--foreground);
-  letter-spacing: -0.02em;
-}
+  .dark .hero-gradient {
+    background: linear-gradient(135deg, rgba(11, 116, 184, 0.08) 0%, rgba(11, 18, 32, 1) 100%);
+  }
 
-.hero-gradient {
-  background: linear-gradient(135deg, rgba(11, 116, 184, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
-}
+  .card-hover {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    @apply border border-slate-200/60 dark:border-white/5;
+  }
 
-.dark .hero-gradient {
-  background: linear-gradient(135deg, rgba(11, 116, 184, 0.08) 0%, rgba(11, 18, 32, 1) 100%);
-}
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+    @apply border-primary/30;
+  }
 
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  @apply border border-slate-200/60 dark:border-white/5;
-}
+  .dark .card-hover:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  }
 
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-  @apply border-primary/30;
-}
+  .section-padding {
+    @apply py-16 px-6 lg:py-28 lg:px-8;
+  }
 
-.dark .card-hover:hover {
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
-}
-
-.section-padding {
-  @apply py-28 px-6;
-}
-
-.glass-nav {
-  @apply backdrop-blur-xl bg-white/90 dark:bg-dark-bg/90 border-b border-slate-200/50 dark:border-white/5;
+  .glass-nav {
+    @apply backdrop-blur-xl bg-white/90 dark:bg-dark-bg/90 border-b border-slate-200/50 dark:border-white/5;
+  }
 }
 
 ::-webkit-scrollbar {

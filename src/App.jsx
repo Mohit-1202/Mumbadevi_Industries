@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
 import AboutUs from './components/sections/AboutUs';
@@ -10,12 +11,14 @@ import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 
 const StackingSection = ({ children, zIndex }) => (
-  <div
-    className="sticky top-0 w-full min-h-screen bg-[var(--background)] shadow-[0_-20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_-20px_50px_rgba(0,0,0,0.5)] rounded-t-[3rem] overflow-hidden border-t border-slate-200/50 dark:border-white/5"
+  <motion.div
     style={{ zIndex }}
+    className="relative lg:sticky lg:top-0 w-full lg:min-h-[100svh] bg-[var(--background)] lg:shadow-[0_-20px_50px_rgba(0,0,0,0.15)] lg:dark:shadow-[0_-20px_50px_rgba(0,0,0,0.5)] lg:rounded-t-[3rem] lg:overflow-hidden lg:border-t lg:border-slate-200/50 lg:dark:border-white/5"
   >
-    {children}
-  </div>
+    <div className="w-full h-full lg:max-h-screen lg:overflow-y-auto">
+      {children}
+    </div>
+  </motion.div>
 );
 
 function App() {
@@ -23,25 +26,25 @@ function App() {
     <div className="relative min-h-screen selection:bg-primary selection:text-white bg-[var(--background)] transition-colors duration-500">
       <Navbar />
       <main className="relative z-10">
-        <div className="relative z-[5]">
+        <StackingSection zIndex={1}>
           <Hero />
-        </div>
-        <StackingSection zIndex={10}>
+        </StackingSection>
+        <StackingSection zIndex={2}>
           <AboutUs />
         </StackingSection>
-        <StackingSection zIndex={11}>
+        <StackingSection zIndex={3}>
           <VisionMission />
         </StackingSection>
-        <StackingSection zIndex={12}>
+        <StackingSection zIndex={4}>
           <Products />
         </StackingSection>
-        <StackingSection zIndex={13}>
+        <StackingSection zIndex={5}>
           <Infrastructure />
         </StackingSection>
-        <StackingSection zIndex={14}>
+        <StackingSection zIndex={6}>
           <Clientele />
         </StackingSection>
-        <StackingSection zIndex={15}>
+        <StackingSection zIndex={7}>
           <Contact />
         </StackingSection>
       </main>

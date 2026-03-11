@@ -15,23 +15,25 @@ const Contact = () => {
 
     return (
         <Section id="contact" className="bg-bg-light dark:bg-dark-bg/50">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
+                    className="text-center lg:text-left"
                 >
-                    <div className="inline-flex items-center gap-2 mb-6 text-primary font-bold text-sm uppercase tracking-widest">
-                        <span className="w-8 h-[2px] bg-primary" />
+                    <div className="inline-flex items-center justify-center lg:justify-start gap-2 mb-6 text-primary font-bold text-sm uppercase tracking-widest w-full lg:w-auto">
+                        <span className="hidden lg:block w-8 h-[2px] bg-primary" />
                         Contact Us
+                        <span className="hidden lg:block w-8 h-[2px] bg-primary opacity-0" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-black mb-10 text-slate-900 dark:text-white font-heading uppercase tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-8 lg:mb-10 text-slate-900 dark:text-white font-heading uppercase tracking-tight">
                         Get In <span className="text-primary">Touch</span>
                     </h2>
 
-                    <div className="space-y-12">
-                        <div className="flex items-start gap-8 group">
+                    <div className="space-y-12 flex flex-col items-center lg:items-start max-w-sm mx-auto lg:mx-0">
+                        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-8 group text-center lg:text-left w-full">
                             <div className="w-14 h-14 rounded-2xl bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                                 <MapPin size={28} strokeWidth={1.5} />
                             </div>
@@ -44,7 +46,7 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-8 group">
+                        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-8 group text-center lg:text-left w-full">
                             <div className="w-14 h-14 rounded-2xl bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                                 <Phone size={28} strokeWidth={1.5} />
                             </div>
@@ -54,7 +56,7 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-8 group">
+                        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-8 group text-center lg:text-left w-full">
                             <div className="w-14 h-14 rounded-2xl bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                                 <Mail size={28} strokeWidth={1.5} />
                             </div>
@@ -71,7 +73,7 @@ const Contact = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="bg-white dark:bg-dark-card p-12 md:p-14 rounded-[3rem] border border-slate-100 dark:border-primary/10 shadow-2xl shadow-primary/5"
+                    className="bg-white dark:bg-dark-card p-8 lg:p-14 rounded-2xl lg:rounded-[3rem] border border-slate-100 dark:border-primary/10 shadow-2xl shadow-primary/5"
                 >
                     <form onSubmit={handleSubmit} className="space-y-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
