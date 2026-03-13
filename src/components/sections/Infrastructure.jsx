@@ -3,6 +3,7 @@ import Section from '../ui/Section';
 import { motion } from 'framer-motion';
 import { Layers, Settings, Boxes, CheckCircle2 } from 'lucide-react';
 import Carousel from '../ui/Carousel';
+import { useAccessibility } from '../../context/AccessibilityContext';
 
 const InfraBlock = ({ title, items, icon: Icon, delay }) => (
     <motion.div
@@ -31,22 +32,24 @@ const InfraBlock = ({ title, items, icon: Icon, delay }) => (
 );
 
 const Infrastructure = () => {
+    const { t } = useAccessibility();
+    
     return (
         <Section className="bg-bg-light dark:bg-dark-bg/50 px-0 transition-colors duration-500">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-10 lg:mb-12 px-6">
                     <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
-                        State-of-the-Art
+                        {t('infra.tagline')}
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
-                        Our <span className="text-primary">Infrastructure</span>
+                        {t('infra.title')} <span className="text-primary">{t('infra.titleHighlight')}</span>
                     </h2>
                 </div>
 
                 {/* Desktop Grid */}
                 <div className="hidden md:grid grid-cols-3 gap-10 px-6 lg:px-0">
                     <InfraBlock
-                        title="Prepress"
+                        title={t('infra.prepress')}
                         icon={Layers}
                         delay={0.1}
                         items={[
@@ -57,7 +60,7 @@ const Infrastructure = () => {
                         ]}
                     />
                     <InfraBlock
-                        title="Pressroom"
+                        title={t('infra.pressroom')}
                         icon={Settings}
                         delay={0.2}
                         items={[
@@ -68,7 +71,7 @@ const Infrastructure = () => {
                         ]}
                     />
                     <InfraBlock
-                        title="Post Press"
+                        title={t('infra.postpress')}
                         icon={Boxes}
                         delay={0.3}
                         items={[
@@ -84,7 +87,7 @@ const Infrastructure = () => {
                 <div className="md:hidden">
                     <Carousel>
                         <InfraBlock
-                            title="Prepress"
+                            title={t('infra.prepress')}
                             icon={Layers}
                             delay={0.1}
                             items={[
@@ -94,7 +97,7 @@ const Infrastructure = () => {
                             ]}
                         />
                         <InfraBlock
-                            title="Pressroom"
+                            title={t('infra.pressroom')}
                             icon={Settings}
                             delay={0.2}
                             items={[
@@ -104,7 +107,7 @@ const Infrastructure = () => {
                             ]}
                         />
                         <InfraBlock
-                            title="Post Press"
+                            title={t('infra.postpress')}
                             icon={Boxes}
                             delay={0.3}
                             items={[
@@ -120,18 +123,18 @@ const Infrastructure = () => {
                     initial={{ opacity: 0, filter: "blur(10px)" }}
                     whileInView={{ opacity: 1, filter: "blur(0px)" }}
                     viewport={{ once: true }}
-                    className="mt-8 lg:mt-12 mx-6 lg:mx-0 rounded-2xl lg:rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/10 relative group h-[200px] lg:h-[30vh]"
+                    className="mt-8 lg:mt-16 mx-4 lg:mx-0 rounded-2xl lg:rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 relative group aspect-[4/5] lg:aspect-none lg:h-[25vh] border-4 lg:border-8 border-white dark:border-slate-800 w-auto lg:w-full"
                 >
                     <img
                         src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=2000"
                         alt="Advanced Printing Infrastructure"
                         className="w-full h-full object-cover grayscale brightness-90 contrast-110 group-hover:scale-105 transition-transform duration-[4s]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 lg:from-primary/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 lg:bottom-16 left-6 lg:left-16 right-6 lg:right-16 text-center lg:text-left">
-                        <div className="text-white text-2xl lg:text-4xl font-black font-heading max-w-xl leading-tight uppercase tracking-tight mx-auto lg:mx-0">
-                            Engineering Excellence <br />
-                            <span className="text-white/70">At Every Impression</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 lg:from-primary/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
+                        <div className="text-white text-2xl sm:text-3xl lg:text-5xl font-black font-heading max-w-2xl leading-tight uppercase tracking-tight">
+                            {t('infra.taglineBottom')} <br />
+                            <span className="text-white/70">{t('infra.taglineBottomSub')}</span>
                         </div>
                     </div>
                 </motion.div>

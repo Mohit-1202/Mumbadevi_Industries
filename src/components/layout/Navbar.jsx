@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
+import { 
+    Menu, X, Phone, MessageCircle, ChevronDown, 
+    Accessibility, Sun, Moon 
+} from 'lucide-react';
+import { useAccessibility } from '../../context/AccessibilityContext';
 import { cn } from '../../utils/cn';
 
 const Navbar = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { 
+        theme, toggleTheme, 
+        language, switchLanguage, t 
+    } = useAccessibility();
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,20 +23,43 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = () => setIsContactDropdownOpen(false);
+        if (isContactDropdownOpen) {
+            window.addEventListener('click', handleClickOutside);
+        }
+        return () => window.removeEventListener('click', handleClickOutside);
+    }, [isContactDropdownOpen]);
+
     const navLinks = [
-        { name: 'Home', href: '#home', index: 0 },
-        { name: 'About', href: '#about', index: 1 },
-        { name: 'Products', href: '#products', index: 3 }, // Fixed alignment (index 2 is Vision)
-        { name: 'Infrastructure', href: '#infrastructure', index: 4 },
-        { name: 'Clients', href: '#clients', index: 5 },
+        { name: t('nav.home'), href: '#home', index: 0 },
+        { name: t('nav.about'), href: '#about', index: 1 },
+        { name: t('nav.products'), href: '#products', index: 3 },
+        { name: t('nav.infrastructure'), href: '#infrastructure', index: 4 },
+        { name: t('nav.impact'), href: '#impact', index: 5 },
+    ];
+
+    const contactOptions = [
+        { 
+            name: t('nav.call'), 
+            icon: <Phone size={18} />, 
+            href: 'tel:+918169017209',
+            color: 'bg-blue-500'
+        },
+        { 
+            name: t('nav.whatsapp'), 
+            icon: <MessageCircle size={18} />, 
+            href: 'https://wa.me/918169017209?text=Hello!%20I%27m%20interested%20in%20Mumbadevi%20Industries%27%20printing%20and%20packaging%20services.%20I%27d%20like%20to%20discuss%20a%20project.',
+            color: 'bg-green-500'
+        },
     ];
 
     const scrollToSection = (e, href, index) => {
         e.preventDefault();
-        setIsMobileMenuOpen(false);
-        
+
+        // Desktop Sticky Flow
         if (window.innerWidth >= 1024) {
-            // Desktop Sticky Flow
             window.scrollTo({
                 top: index * window.innerHeight,
                 behavior: 'smooth'
@@ -51,134 +80,113 @@ const Navbar = () => {
     };
 
     return (
-        <>
-            <nav className={cn(
-                "fixed top-0 left-0 right-0 z-[10001] transition-all duration-500 px-6 sm:px-12",
-                isScrolled ? "glass-nav py-4 shadow-sm" : "py-8"
-            )}>
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <a href="#home" onClick={(e) => scrollToSection(e, '#home', 0)} className="flex items-center gap-2 group">
-                        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-12">
-                            M
-                        </div>
-                        <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-heading">
-                            MUMBADEVI <span className="text-primary">IND.</span>
-                        </span>
-                    </a>
+        <nav className={cn(
+            "fixed top-0 left-0 right-0 z-[10001] transition-all duration-500 px-6 sm:px-12",
+            isScrolled ? "glass-nav py-4 shadow-sm" : "py-8"
+        )}>
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="#home" onClick={(e) => scrollToSection(e, '#home', 0)} className="flex items-center gap-2 group">
+                    <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-12">
+                        M
+                    </div>
+                    <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-heading">
+                        MUMBADEVI <span className="text-primary">IND.</span>
+                    </span>
+                </a>
 
-                    {/* Desktop Links */}
-                    <div className="hidden md:flex items-center space-x-10">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => scrollToSection(e, link.href, link.index)}
-                                className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors relative group"
-                            >
-                                {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-                            </a>
-                        ))}
+                {/* Main Navigation */}
+                <div className="hidden md:flex items-center space-x-10">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={(e) => scrollToSection(e, link.href, link.index)}
+                            className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors relative group"
+                        >
+                            {link.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                        </a>
+                    ))}
 
-                        <div className="flex items-center gap-6 pl-6 border-l border-slate-200 dark:border-slate-800">
-                            <button
-                                onClick={toggleTheme}
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
-                                aria-label="Toggle Theme"
-                            >
-                                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-                            </button>
-                            <a
-                                href="#contact"
-                                onClick={(e) => scrollToSection(e, '#contact', 6)}
-                                className="bg-primary text-white px-7 py-2.5 rounded-lg text-sm font-bold shadow-md shadow-primary/20 hover:bg-primary-dark transition-all hover:scale-105 active:scale-95"
-                            >
-                                Contact Us
-                            </a>
-                        </div>
+                    {/* Contact Dropdown Trigger (Styled as link) */}
+                    <div 
+                        className="relative group/contact"
+                        onMouseEnter={() => setIsContactDropdownOpen(true)}
+                        onMouseLeave={() => setIsContactDropdownOpen(false)}
+                    >
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsContactDropdownOpen(!isContactDropdownOpen);
+                            }}
+                            className={cn(
+                                "flex items-center gap-1.5 text-sm font-semibold transition-colors relative py-2",
+                                isContactDropdownOpen ? "text-primary" : "text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light"
+                            )}
+                        >
+                            {t('nav.contact')}
+                            <ChevronDown size={14} className={cn("transition-transform duration-300", isContactDropdownOpen && "rotate-180")} />
+                            <span className={cn("absolute -bottom-1 left-0 h-0.5 bg-primary transition-all", isContactDropdownOpen ? "w-full" : "w-0 group-hover/contact:w-full")} />
+                        </button>
+
+                        <AnimatePresence>
+                            {isContactDropdownOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 15, scale: 0.95, rotateX: -10 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                                    exit={{ opacity: 0, y: 10, scale: 0.95, rotateX: -10 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                    className="absolute right-0 mt-2 w-56 bg-white/95 dark:bg-dark-card/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-200/50 dark:border-white/10 overflow-hidden perspective-1000"
+                                >
+                                    <div className="p-2 space-y-1">
+                                        {contactOptions.map((option, idx) => (
+                                            <motion.a
+                                                key={option.name}
+                                                href={option.href}
+                                                target={option.name === t('nav.whatsapp') ? "_blank" : "_self"}
+                                                rel="noopener noreferrer"
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: idx * 0.1 }}
+                                                className="flex items-center gap-4 px-4 py-3.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/10 transition-all group active:scale-95"
+                                            >
+                                                <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg", option.color)}>
+                                                    {option.icon}
+                                                </div>
+                                                <div className="flex flex-col text-left">
+                                                    <span className="text-sm font-black text-slate-900 dark:text-white group-hover:text-primary transition-colors">{option.name}</span>
+                                                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tighter transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-300">+91-8169017209</span>
+                                                </div>
+                                            </motion.a>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
 
-                    {/* Mobile Toggle */}
-                    <div className="md:hidden flex items-center gap-4 relative z-[10010]">
-                        <button onClick={toggleTheme} className="text-slate-500 dark:text-slate-400">
+                    <div className="flex items-center gap-6 pl-6 border-l border-slate-200 dark:border-slate-800">
+                        <button 
+                            onClick={toggleTheme}
+                            className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-primary transition-all"
+                            aria-label="Toggle Theme"
+                        >
                             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-                        </button>
-                        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-slate-900 dark:text-white">
-                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
-            </nav>
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 1.1 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.1 }}
-                        className="md:hidden fixed inset-0 z-[10005] bg-white/98 dark:bg-dark-bg/98 backdrop-blur-3xl flex flex-col justify-center items-center"
+                {/* Mobile Only Theme Toggle (Minimal) */}
+                <div className="md:hidden flex items-center">
+                    <button 
+                        onClick={toggleTheme}
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/10 text-slate-600 dark:text-slate-300"
                     >
-                        {/* Explicit Close Button for Mobile Menu */}
-                        <div className="absolute top-10 right-6 z-[10015]">
-                            <button 
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white"
-                            >
-                                <X size={28} />
-                            </button>
-                        </div>
-
-                        {/* Decorative Background Elements */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-
-                        <motion.div
-                            initial="closed"
-                            animate="open"
-                            exit="closed"
-                            variants={{
-                                open: {
-                                    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-                                },
-                                closed: {
-                                    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-                                }
-                            }}
-                            className="flex flex-col items-center justify-center space-y-8 w-full relative z-10"
-                        >
-                            {navLinks.map((link) => (
-                                <motion.a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => scrollToSection(e, link.href, link.index)}
-                                    variants={{
-                                        open: { opacity: 1, y: 0, scale: 1 },
-                                        closed: { opacity: 0, y: 40, scale: 0.95 }
-                                    }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                    className="text-3xl sm:text-4xl font-black text-slate-800 dark:text-slate-200 font-heading uppercase tracking-widest hover:text-primary transition-colors text-center"
-                                >
-                                    {link.name}
-                                </motion.a>
-                            ))}
-                            <motion.a
-                                href="#contact"
-                                onClick={(e) => scrollToSection(e, '#contact', 6)}
-                                variants={{
-                                    open: { opacity: 1, scale: 1, y: 0 },
-                                    closed: { opacity: 0, scale: 0.9, y: 20 }
-                                }}
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                className="bg-primary text-white px-12 py-4 rounded-xl text-lg font-bold mt-4 shadow-xl shadow-primary/20 text-center uppercase tracking-widest"
-                            >
-                                Inquire Now
-                            </motion.a>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
+                        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                    </button>
+                </div>
+            </div>
+        </nav>
     );
 };
 

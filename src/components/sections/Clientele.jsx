@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Section from '../ui/Section';
 import { motion, useInView } from 'framer-motion';
+import { useAccessibility } from '../../context/AccessibilityContext';
 
 const StatBar = ({ label, value, color, index }) => {
     const ref = useRef(null);
@@ -13,7 +14,7 @@ const StatBar = ({ label, value, color, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white dark:bg-dark-card p-4 lg:p-6 rounded-[2.5rem] border border-slate-100 dark:border-primary/10 shadow-sm flex flex-col items-center text-center group card-hover"
+            className="bg-white dark:bg-dark-card p-4 lg:p-6 rounded-2xl border border-slate-100 dark:border-primary/10 shadow-sm flex flex-col items-center text-center group card-hover"
         >
             <div className="relative w-20 h-20 lg:w-24 lg:h-24 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-500">
                 <svg className="w-full h-full transform -rotate-90">
@@ -51,12 +52,13 @@ const StatBar = ({ label, value, color, index }) => {
 };
 
 const Clientele = () => {
+    const { t } = useAccessibility();
     const sectors = [
-        { label: "Hospitality", value: 30 },
-        { label: "Infrastructure", value: 26 },
-        { label: "FMCG", value: 20 },
-        { label: "Pharmaceutical", value: 14 },
-        { label: "Others", value: 10 }
+        { label: t('client.hosp'), value: 30 },
+        { label: t('client.infra'), value: 26 },
+        { label: t('client.fmcg'), value: 20 },
+        { label: t('client.pharm'), value: 14 },
+        { label: t('client.others'), value: 10 }
     ];
 
     return (
@@ -64,10 +66,10 @@ const Clientele = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-10 lg:mb-12 px-6">
                     <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
-                        Market Presence
+                        {t('client.tagline')}
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
-                        Sector Wise <span className="text-primary">Impact</span>
+                        {t('client.title')} <span className="text-primary">{t('client.titleHighlight')}</span>
                     </h2>
                 </div>
 

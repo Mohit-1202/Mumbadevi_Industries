@@ -1,0 +1,194 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "products": "Products",
+      "infrastructure": "Infrastructure",
+      "impact": "Impact",
+      "contact": "Contact Us",
+      "call": "Voice Call",
+      "whatsapp": "WhatsApp"
+    },
+    "hero": {
+      "tagline": "Translating Your Imaginations",
+      "title": "Mumbadevi",
+      "titleHighlight": "Industries",
+      "description": "Premier Multi-Colour Offset Printing & Precision Packaging Solutions since 2004.",
+      "cta": "View Capabilities"
+    },
+    "about": {
+        "tagline": "About Us",
+        "title": "Mumbadevi Industries",
+        "titleHighlight": "Company Profile",
+        "description1": "Mumbadevi Industries is an impeccable name trusted for providing high-end quality print services. Built on a foundation of strong ethical values and modern technology, Mumbadevi Industries has been established as a premier name in the printing industry since 2004.",
+        "description2": "Our commitment to excellence is reflected in every project we undertake. We translate imaginations into reality with a balance of advanced industrial craftsmanship and the speed of modern automation.",
+        "years": "Since 2004",
+        "units": "ISO Standards"
+    },
+    "vision": {
+        "tagline": "Purpose & Goals",
+        "title": "Vision",
+        "titleHighlight": "Mission",
+        "visionTitle": "The Vision",
+        "visionDesc": "To become a global benchmark in the printing industry, known for innovation, sustainability, and unmatched quality. We aspire to empower businesses with print solutions that leave a lasting impact on their brands.",
+        "missionTitle": "The Mission",
+        "missionDesc": "Adopting cutting-edge technology for precision, maintaining strong ethical values in all dealings, and exceeding customer expectations through timely delivery and constant improvement in our craft."
+    },
+    "products": {
+        "tagline": "Industrial Capabilities",
+        "title": "Precision",
+        "titleHighlight": "Print Units",
+        "commTitle": "Commercial Printing",
+        "commDesc": "High-fidelity bulk printing for corporate and marketing excellence.",
+        "digiTitle": "Digital Printing",
+        "digiDesc": "Variable data and short-run excellence with high speed.",
+        "packTitle": "Packaging",
+        "packDesc": "Structural engineering and luxurious finishing for product shelf appeal."
+    },
+    "infra": {
+        "tagline": "State-of-the-Art",
+        "title": "Our",
+        "titleHighlight": "Infrastructure",
+        "prepress": "Prepress",
+        "pressroom": "Pressroom",
+        "postpress": "Post Press",
+        "taglineBottom": "Engineering Excellence",
+        "taglineBottomSub": "At Every Impression"
+    },
+    "client": {
+        "tagline": "Market Presence",
+        "title": "Sector Wise",
+        "titleHighlight": "Impact",
+        "hosp": "Hospitality",
+        "infra": "Infrastructure",
+        "fmcg": "FMCG",
+        "pharm": "Pharmaceutical",
+        "others": "Others"
+    },
+    "contact": {
+        "tagline": "Contact Us",
+        "title": "Get In",
+        "titleHighlight": "Touch",
+        "address": "Address",
+        "callUs": "Call Us",
+        "email": "Email Enquiries"
+    },
+    "footer": {
+        "description": "Translating Your Imaginations into Reality since 2004.",
+        "subDescription": "Your premium partner in high-precision offset printing.",
+        "nav": "Navigation",
+        "address": "Address",
+        "backToTop": "Back to Top",
+        "copy": "Precision in every print.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+    },
+    "acc": {
+        "title": "Accessibility",
+        "theme": "Theme",
+        "light": "Light",
+        "dark": "Dark",
+        "fontSize": "Font Size",
+        "language": "Language",
+        "en": "English",
+        "hi": "Hindi"
+    }
+  },
+  "hi": {
+    "nav": {
+      "home": "होम",
+      "about": "परिचय",
+      "products": "उत्पाद",
+      "infrastructure": "इन्फ्रास्ट्रक्चर",
+      "impact": "प्रभाव",
+      "contact": "संपर्क करें",
+      "call": "वॉयस कॉल",
+      "whatsapp": "व्हाट्सएप"
+    },
+    "hero": {
+      "tagline": "आपकी कल्पनाओं का अनुवाद",
+      "title": "मुंबादेवी",
+      "titleHighlight": "इंडस्ट्रीज",
+      "description": "2004 से प्रमुख मल्टी-कलर ऑफसेट प्रिंटिंग और सटीक पैकेजिंग समाधान।",
+      "cta": "क्षमताओं को देखें"
+    },
+    "about": {
+        "tagline": "हमारे बारे में",
+        "title": "मुंबादेवी इंडस्ट्रीज",
+        "titleHighlight": "कंपनी प्रोफाइल",
+        "description1": "मुंबादेवी इंडस्ट्रीज उच्च गुणवत्ता वाली प्रिंट सेवाओं को प्रदान करने के लिए एक विश्वसनीय नाम है। मजबूत नैतिक मूल्यों और आधुनिक तकनीक की नींव पर निर्मित, मुंबादेवी इंडस्ट्रीज को 2004 से मुद्रण उद्योग में एक प्रमुख नाम के रूप में स्थापित किया गया है।",
+        "description2": "उत्कृष्टता के प्रति हमारी प्रतिबद्धता हमारे द्वारा किए जाने वाले प्रत्येक प्रोजेक्ट में झलकती है। हम उन्नत औद्योगिक शिल्प कौशल और आधुनिक स्वचालन की गति के संतुलन के साथ कल्पनाओं को वास्तविकता में बदलते हैं।",
+        "years": "2004 से",
+        "units": "आईएसओ मानक"
+    },
+    "vision": {
+        "tagline": "उद्देश्य और लक्ष्य",
+        "title": "विज़न",
+        "titleHighlight": "मिशन",
+        "visionTitle": "विज़न",
+        "visionDesc": "नवाचार, स्थिरता और बेजोड़ गुणवत्ता के लिए जाने जाने वाले मुद्रण उद्योग में एक वैश्विक मानक बनना। हम व्यवसायों को प्रिंट समाधानों के साथ सशक्त बनाने की आकांक्षा रखते हैं जो उनके ब्रांडों पर स्थायी प्रभाव छोड़ते हैं।",
+        "missionTitle": "मिशन",
+        "missionDesc": "सटीकता के लिए अत्याधुनिक तकनीक को अपनाना, सभी व्यवहारों में मजबूत नैतिक मूल्यों को बनाए रखना और समय पर वितरण और हमारे शिल्प में निरंतर सुधार के माध्यम से ग्राहकों की अपेक्षाओं से अधिक होना।"
+    },
+    "products": {
+        "tagline": "औद्योगिक क्षमताएं",
+        "title": "सटीक",
+        "titleHighlight": "प्रिंट यूनिट्स",
+        "commTitle": "वाणिज्यिक मुद्रण",
+        "commDesc": "कॉर्पोरेट और विपणन उत्कृष्टता के लिए उच्च-सत्यता थोक मुद्रण।",
+        "digiTitle": "डिजिटल प्रिंटिंग",
+        "digiDesc": "उच्च गति के साथ परिवर्तनीय डेटा और लघु-रन उत्कृष्टता।",
+        "packTitle": "पैकेजिंग",
+        "packDesc": "उत्पाद शेल्फ अपील के लिए संरचनात्मक इंजीनियरिंग और शानदार परिष्करण।"
+    },
+    "infra": {
+        "tagline": "अत्याधुनिक",
+        "title": "हमारा",
+        "titleHighlight": "इन्फ्रास्ट्रक्चर",
+        "prepress": "प्रीप्रेस",
+        "pressroom": "प्रेसरूम",
+        "postpress": "पोस्ट प्रेस",
+        "taglineBottom": "इंजीनियरिंग उत्कृष्टता",
+        "taglineBottomSub": "हर प्रभाव पर"
+    },
+    "client": {
+        "tagline": "बाजार उपस्थिति",
+        "title": "सेक्टर वार",
+        "titleHighlight": "प्रभाव",
+        "hosp": "हॉस्पिटैलिटी",
+        "infra": "इन्फ्रास्ट्रक्चर",
+        "fmcg": "एफएमसीजी",
+        "pharm": "फार्मास्युटिकल",
+        "others": "अन्य"
+    },
+    "contact": {
+        "tagline": "संपर्क करें",
+        "title": "संपर्क",
+        "titleHighlight": "में रहें",
+        "address": "पता",
+        "callUs": "हमें कॉल करें",
+        "email": "ईमेल पूछताछ"
+    },
+    "footer": {
+        "description": "2004 से आपकी कल्पनाओं को वास्तविकता में बदल रहे हैं।",
+        "subDescription": "उच्च-सटीक ऑफसेट प्रिंटिंग में आपका प्रीमियम पार्टनर।",
+        "nav": "नेविगेशन",
+        "address": "पता",
+        "backToTop": "ऊपर जाएँ",
+        "copy": "हर प्रिंट में सटीकता।",
+        "privacy": "गोपनीयता नीति",
+        "terms": "सेवा की शर्तें"
+    },
+    "acc": {
+        "title": "पहुँच योग्यता",
+        "theme": "थीम",
+        "light": "लाइट",
+        "dark": "डार्क",
+        "fontSize": "फ़ॉन्ट आकार",
+        "language": "भाषा",
+        "en": "अंग्रेजी",
+        "hi": "हिंदी"
+    }
+  }
+}

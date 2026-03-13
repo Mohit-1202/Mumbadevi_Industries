@@ -3,15 +3,10 @@ import Section from '../ui/Section';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useAccessibility } from '../../context/AccessibilityContext';
 
 const Contact = () => {
-    const [formState, setFormState] = useState('idle');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormState('loading');
-        setTimeout(() => setFormState('success'), 1500);
-    };
+    const { t } = useAccessibility();
 
     return (
         <Section className="bg-bg-light dark:bg-dark-bg/50 transition-colors duration-500">
@@ -25,11 +20,11 @@ const Contact = () => {
                 >
                     <div className="inline-flex items-center justify-center lg:justify-start gap-2 mb-4 text-primary font-bold text-sm uppercase tracking-widest w-full lg:w-auto">
                         <span className="hidden lg:block w-8 h-[2px] bg-primary" />
-                        Contact Us
+                        {t('contact.tagline')}
                         <span className="hidden lg:block w-8 h-[2px] bg-primary opacity-0" />
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 lg:mb-8 text-slate-900 dark:text-white font-heading uppercase tracking-tight">
-                        Get In <span className="text-primary">Touch</span>
+                        {t('contact.title')} <span className="text-primary">{t('contact.titleHighlight')}</span>
                     </h2>
 
                     <div className="space-y-8 flex flex-col items-center lg:items-start max-w-sm mx-auto lg:mx-0">
@@ -38,10 +33,10 @@ const Contact = () => {
                                 <MapPin size={28} strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white font-heading">Physical Hub</h4>
+                                <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white font-heading">{t('contact.address')}</h4>
                                 <p className="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                                    Mumbadevi Industries,<br />
-                                    Mumbai, Maharashtra, India.
+                                    D-219, Bonanza industrial estate,<br />
+                                    Kandivali (East), Mumbai 400 101
                                 </p>
                             </div>
                         </div>
@@ -51,8 +46,8 @@ const Contact = () => {
                                 <Phone size={28} strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white font-heading">Call Us</h4>
-                                <p className="text-slate-600 dark:text-slate-400 font-medium">+91 0000 000 000</p>
+                                <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white font-heading">{t('contact.callUs')}</h4>
+                                <p className="text-slate-600 dark:text-slate-400 font-medium">+91-8169017209</p>
                             </div>
                         </div>
 
@@ -61,62 +56,33 @@ const Contact = () => {
                                 <Mail size={28} strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white font-heading">Email Enquiries</h4>
-                                <p className="text-slate-600 dark:text-slate-400 font-medium">info@mumbadevi.com</p>
+                                <h4 className="font-black text-xl mb-2 text-slate-900 dark:text-white font-heading">{t('contact.email')}</h4>
+                                <p className="text-slate-600 dark:text-slate-400 font-medium">mumbadeviind@gmail.com</p>
                             </div>
                         </div>
                     </div>
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="bg-white dark:bg-dark-card p-6 lg:p-10 rounded-2xl lg:rounded-[3rem] border border-slate-100 dark:border-primary/10 shadow-2xl shadow-primary/5"
+                    className="w-full h-[400px] lg:h-[550px] rounded-2xl lg:rounded-2xl overflow-hidden bg-white dark:bg-dark-card border-4 border-primary/20 shadow-2xl shadow-primary/10 hover:border-primary/40 transition-all duration-700 relative p-1 lg:p-2"
                 >
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-3">
-                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">Name</label>
-                                <input
-                                    type="text"
-                                    required
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 p-4 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all font-medium"
-                                    placeholder="Full Name"
-                                />
-                            </div>
-                            <div className="space-y-3">
-                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">Email</label>
-                                <input
-                                    type="email"
-                                    required
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 p-4 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all font-medium"
-                                    placeholder="email@company.com"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="space-y-3">
-                            <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">Message</label>
-                            <textarea
-                                rows="3"
-                                required
-                                className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 p-3 lg:p-4 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all font-medium resize-none"
-                                placeholder="How can we help your business?"
-                            />
-                        </div>
-
-                        <Button
-                            type="submit"
-                            className="w-full h-14 lg:h-16 rounded-xl text-lg shadow-xl shadow-primary/20"
-                            disabled={formState !== 'idle'}
-                        >
-                            {formState === 'idle' && "Send Proposal"}
-                            {formState === 'loading' && "Processing..."}
-                            {formState === 'success' && "Sent Successfully!"}
-                        </Button>
-                    </form>
+                    <div className="w-full h-full rounded-2xl lg:rounded-2xl overflow-hidden border border-slate-100 dark:border-white/5">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2292.663713700389!2d72.85832861639466!3d19.20304516347058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b723e96ac631%3A0x8ea103f9f7248309!2sAkurli%20Industrial%20Estate!5e0!3m2!1sen!2sin!4v1773395707837!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="w-full h-full"
+                            title={t('contact.title')}
+                        ></iframe>
+                    </div>
                 </motion.div>
             </div>
         </Section>

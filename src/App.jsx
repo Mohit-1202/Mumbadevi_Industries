@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { cn } from './utils/cn';
 import Navbar from './components/layout/Navbar';
+import MobileNav from './components/layout/MobileNav';
 import Hero from './components/sections/Hero';
 import AboutUs from './components/sections/AboutUs';
 import VisionMission from './components/sections/VisionMission';
@@ -27,37 +28,42 @@ const StackingSection = ({ children, zIndex, id }) => (
   </motion.div>
 );
 
+import { AccessibilityProvider } from './context/AccessibilityContext';
+
 function App() {
   return (
-    <div className="relative min-h-screen selection:bg-primary selection:text-white bg-[var(--background)] transition-colors duration-500">
-      <main className="relative z-10">
-        <StackingSection zIndex={1} id="home">
-          <Hero />
-        </StackingSection>
-        <StackingSection zIndex={2} id="about">
-          <AboutUs />
-        </StackingSection>
-        <StackingSection zIndex={3} id="vision">
-          <VisionMission />
-        </StackingSection>
-        <StackingSection zIndex={4} id="products">
-          <Products />
-        </StackingSection>
-        <StackingSection zIndex={5} id="infrastructure">
-          <Infrastructure />
-        </StackingSection>
-        <StackingSection zIndex={6} id="clients">
-          <Clientele />
-        </StackingSection>
-        <StackingSection zIndex={7} id="contact">
-          <Contact />
-        </StackingSection>
-      </main>
-      <div className="relative z-[20] bg-[var(--background)]">
-        <Footer />
-      </div>
-      <Navbar />
-    </div>
+    <AccessibilityProvider>
+        <div className="relative min-h-screen selection:bg-primary selection:text-white bg-[var(--background)] transition-colors duration-500">
+        <main className="relative z-10">
+            <StackingSection zIndex={1} id="home">
+            <Hero />
+            </StackingSection>
+            <StackingSection zIndex={2} id="about">
+            <AboutUs />
+            </StackingSection>
+            <StackingSection zIndex={3} id="vision">
+            <VisionMission />
+            </StackingSection>
+            <StackingSection zIndex={4} id="products">
+            <Products />
+            </StackingSection>
+            <StackingSection zIndex={5} id="infrastructure">
+            <Infrastructure />
+            </StackingSection>
+            <StackingSection zIndex={6} id="clients">
+            <Clientele />
+            </StackingSection>
+            <StackingSection zIndex={7} id="contact">
+            <Contact />
+            </StackingSection>
+        </main>
+        <div className="relative z-[20] bg-[var(--background)]">
+            <Footer />
+        </div>
+        <Navbar />
+        <MobileNav />
+        </div>
+    </AccessibilityProvider>
   );
 }
 

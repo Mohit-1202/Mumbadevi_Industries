@@ -3,6 +3,7 @@ import Section from '../ui/Section';
 import { motion } from 'framer-motion';
 import { Printer, Layout, Package, Check } from 'lucide-react';
 import Carousel from '../ui/Carousel';
+import { useAccessibility } from '../../context/AccessibilityContext';
 
 const Ticker = ({ items }) => {
     return (
@@ -34,7 +35,7 @@ const ProductCard = ({ title, description, details, image, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="bg-white dark:bg-dark-card rounded-2xl overflow-hidden border border-slate-100 dark:border-primary/10 shadow-sm card-hover flex flex-col h-full group"
+            className="bg-white dark:bg-dark-card rounded-xl overflow-hidden border border-slate-100 dark:border-primary/10 shadow-sm card-hover flex flex-col h-full group"
         >
             <div className="relative h-48 lg:h-56 overflow-hidden">
                 <img
@@ -59,14 +60,16 @@ const ProductCard = ({ title, description, details, image, index }) => {
 };
 
 const Products = () => {
+    const { t } = useAccessibility();
+    
     return (
         <Section className="px-0 bg-white dark:bg-dark-bg transition-colors duration-500">
             <div className="text-center mb-10 lg:mb-12 px-6">
                 <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
-                    Industrial Capabilities
+                    {t('products.tagline')}
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
-                    Precision <span className="text-primary">Print Units</span>
+                    {t('products.title')} <span className="text-primary">{t('products.titleHighlight')}</span>
                 </h2>
             </div>
 
@@ -75,22 +78,22 @@ const Products = () => {
                 <div className="hidden md:grid grid-cols-3 gap-10 px-6 lg:px-0">
                     <ProductCard
                         index={0}
-                        title="Commercial Printing"
-                        description="High-fidelity bulk printing for corporate and marketing excellence."
+                        title={t('products.commTitle')}
+                        description={t('products.commDesc')}
                         details={["Books", "Brochures", "Catalogues", "Calendars", "Posters", "POP Material", "Stationery"]}
                         image="https://plus.unsplash.com/premium_photo-1682145481505-80614272c426?auto=format&fit=crop&q=80&w=1000"
                     />
                     <ProductCard
                         index={1}
-                        title="Digital Printing"
-                        description="Variable data and short-run excellence with high speed."
+                        title={t('products.digiTitle')}
+                        description={t('products.digiDesc')}
                         details={["Manuals", "Certificates", "Custom Calendars", "Invitation Cards", "Vinyl Displays"]}
                         image="https://plus.unsplash.com/premium_photo-1663047874619-f4c0272910a4?auto=format&fit=crop&q=80&w=1000"
                     />
                     <ProductCard
                         index={2}
-                        title="Packaging"
-                        description="Structural engineering and luxurious finishing for product shelf appeal."
+                        title={t('products.packTitle')}
+                        description={t('products.packDesc')}
                         details={["Folding Cartons", "Self Adhesive Labels", "Gift Packs", "Blister Packaging"]}
                         image="https://plus.unsplash.com/premium_photo-1764703497365-936ad6b594f1?auto=format&fit=crop&q=80&w=1000"
                     />
@@ -101,22 +104,22 @@ const Products = () => {
                     <Carousel>
                         <ProductCard
                             index={0}
-                            title="Commercial Printing"
-                            description="High-fidelity bulk printing."
+                            title={t('products.commTitle')}
+                            description={t('products.commDesc')}
                             details={["Books", "Brochures", "Catalogues"]}
                             image="https://plus.unsplash.com/premium_photo-1682145481505-80614272c426?auto=format&fit=crop&q=80&w=1000"
                         />
                         <ProductCard
                             index={1}
-                            title="Digital Printing"
-                            description="Variable data excellence."
+                            title={t('products.digiTitle')}
+                            description={t('products.digiDesc')}
                             details={["Manuals", "Certificates", "Vinyl"]}
                             image="https://plus.unsplash.com/premium_photo-1663047874619-f4c0272910a4?auto=format&fit=crop&q=80&w=1000"
                         />
                         <ProductCard
                             index={2}
-                            title="Packaging"
-                            description="Structural engineering."
+                            title={t('products.packTitle')}
+                            description={t('products.packDesc')}
                             details={["Cartons", "Labels", "Blister"]}
                             image="https://plus.unsplash.com/premium_photo-1764703497365-936ad6b594f1?auto=format&fit=crop&q=80&w=1000"
                         />
