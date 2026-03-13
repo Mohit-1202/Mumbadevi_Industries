@@ -13,9 +13,9 @@ const StatBar = ({ label, value, color, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white dark:bg-dark-card p-6 lg:p-10 rounded-[2.5rem] border border-slate-100 dark:border-primary/10 shadow-sm flex flex-col items-center text-center group card-hover"
+            className="bg-white dark:bg-dark-card p-4 lg:p-6 rounded-[2.5rem] border border-slate-100 dark:border-primary/10 shadow-sm flex flex-col items-center text-center group card-hover"
         >
-            <div className="relative w-24 h-24 lg:w-32 lg:h-32 mb-6 lg:mb-8 group-hover:scale-110 transition-transform duration-500">
+            <div className="relative w-20 h-20 lg:w-24 lg:h-24 mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-500">
                 <svg className="w-full h-full transform -rotate-90">
                     <circle
                         cx="50%"
@@ -62,8 +62,8 @@ const Clientele = () => {
     return (
         <Section id="clients">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12 lg:mb-20 px-6">
-                    <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+                <div className="text-center mb-10 lg:mb-12 px-6">
+                    <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                         Market Presence
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">

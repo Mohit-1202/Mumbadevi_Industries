@@ -10,16 +10,16 @@ const InfraBlock = ({ title, items, icon: Icon, delay }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay }}
-        className="bg-white dark:bg-dark-card p-8 lg:p-12 rounded-3xl border border-slate-100 dark:border-primary/10 shadow-sm group hover:shadow-xl transition-all duration-500 flex flex-col items-center lg:items-start text-center lg:text-left"
+        className="bg-white dark:bg-dark-card p-6 lg:p-8 rounded-2xl border border-slate-100 dark:border-primary/10 shadow-sm group hover:shadow-xl transition-all duration-500 flex flex-col items-center lg:items-start text-center lg:text-left h-full"
     >
-        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 mb-8 lg:mb-10 w-full justify-center lg:justify-start">
-            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                <Icon size={24} lg:size={28} strokeWidth={1.5} />
+        <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-4 mb-6 lg:mb-8 w-full justify-center lg:justify-start">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                <Icon size={20} lg:size={24} strokeWidth={1.5} />
             </div>
-            <h4 className="text-xl lg:text-2xl font-black text-slate-900 dark:text-white font-heading">{title}</h4>
+            <h4 className="text-lg lg:text-xl font-black text-slate-900 dark:text-white font-heading">{title}</h4>
         </div>
 
-        <div className="space-y-5 w-full">
+        <div className="space-y-3 w-full">
             {items.map((item, idx) => (
                 <div key={idx} className="flex items-center lg:items-start justify-center lg:justify-start gap-4 text-slate-600 dark:text-slate-400 font-bold group/item">
                     <CheckCircle2 size={18} className="text-primary mt-1 shrink-0 group-hover/item:scale-125 transition-transform" />
@@ -32,10 +32,10 @@ const InfraBlock = ({ title, items, icon: Icon, delay }) => (
 
 const Infrastructure = () => {
     return (
-        <Section id="infrastructure" className="bg-bg-light dark:bg-dark-bg/50">
+        <Section id="infrastructure" className="bg-bg-light dark:bg-dark-bg/50 px-0">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12 lg:mb-20 px-6">
-                    <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+                <div className="text-center mb-10 lg:mb-12 px-6">
+                    <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                         State-of-the-Art
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
@@ -44,7 +44,7 @@ const Infrastructure = () => {
                 </div>
 
                 {/* Desktop Grid */}
-                <div className="hidden md:grid grid-cols-3 gap-10">
+                <div className="hidden md:grid grid-cols-3 gap-10 px-6 lg:px-0">
                     <InfraBlock
                         title="Prepress"
                         icon={Layers}
@@ -120,14 +120,14 @@ const Infrastructure = () => {
                     initial={{ opacity: 0, filter: "blur(10px)" }}
                     whileInView={{ opacity: 1, filter: "blur(0px)" }}
                     viewport={{ once: true }}
-                    className="mt-12 lg:mt-24 rounded-2xl lg:rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/10 relative group h-[300px] lg:h-[500px]"
+                    className="mt-8 lg:mt-12 mx-6 lg:mx-0 rounded-2xl lg:rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/10 relative group h-[200px] lg:h-[30vh]"
                 >
                     <img
-                        src="https://plus.unsplash.com/premium_photo-1682144342211-7393282b9921?auto=format&fit=crop&q=80&w=2000"
+                        src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=2000"
                         alt="Advanced Printing Infrastructure"
                         className="w-full h-full object-cover grayscale brightness-90 contrast-110 group-hover:scale-105 transition-transform duration-[4s]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 lg:from-primary/70 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 lg:from-primary/70 via-transparent to-transparent" />
                     <div className="absolute bottom-6 lg:bottom-16 left-6 lg:left-16 right-6 lg:right-16 text-center lg:text-left">
                         <div className="text-white text-2xl lg:text-4xl font-black font-heading max-w-xl leading-tight uppercase tracking-tight mx-auto lg:mx-0">
                             Engineering Excellence <br />

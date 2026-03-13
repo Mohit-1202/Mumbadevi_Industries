@@ -35,7 +35,7 @@ const Hero = () => {
     };
 
     return (
-        <Section id="home" className="h-screen flex items-center justify-center p-0 overflow-hidden" showBackdrop={true}>
+        <Section id="home" className="lg:h-screen h-fit min-h-screen flex items-center justify-center p-0 pt-32 lg:pt-0 overflow-hidden" showBackdrop={true}>
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 <motion.div
                     variants={containerVariants}
@@ -54,7 +54,7 @@ const Hero = () => {
 
                         <motion.h1
                             variants={itemVariants}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-[1.1] lg:leading-[0.9] text-slate-900 dark:text-white mb-6 lg:mb-10 font-heading uppercase tracking-tighter"
+                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] lg:leading-[0.9] text-slate-900 dark:text-white mb-4 lg:mb-6 font-heading uppercase tracking-tighter"
                         >
                             Mumbadevi <br />
                             <span className="text-primary">Industries</span>
@@ -62,7 +62,7 @@ const Hero = () => {
 
                         <motion.p
                             variants={itemVariants}
-                            className="text-base sm:text-lg lg:text-2xl text-slate-600 dark:text-slate-400 font-medium mb-8 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed lg:border-l-4 border-primary lg:pl-8"
+                            className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 dark:text-slate-400 font-medium mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed lg:border-l-4 border-primary lg:pl-8"
                         >
                             Premier <span className="text-slate-900 dark:text-white font-bold">Multi-Colour Offset Printing</span> & Precision Packaging Solutions since 2004.
                         </motion.p>

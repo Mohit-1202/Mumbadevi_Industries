@@ -34,9 +34,9 @@ const ProductCard = ({ title, description, details, image, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="bg-white dark:bg-dark-card rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-primary/10 shadow-sm card-hover flex flex-col h-full group"
+            className="bg-white dark:bg-dark-card rounded-2xl overflow-hidden border border-slate-100 dark:border-primary/10 shadow-sm card-hover flex flex-col h-full group"
         >
-            <div className="relative h-64 lg:h-72 overflow-hidden">
+            <div className="relative h-48 lg:h-56 overflow-hidden">
                 <img
                     src={image}
                     alt={title}
@@ -45,9 +45,9 @@ const ProductCard = ({ title, description, details, image, index }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
-            <div className="p-8 lg:p-12 flex flex-col flex-grow text-center lg:text-left">
-                <h3 className="text-2xl lg:text-3xl font-black mb-4 text-slate-900 dark:text-white font-heading uppercase">{title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 font-medium mb-10 leading-relaxed italic text-base lg:text-lg">
+            <div className="p-6 lg:p-8 flex flex-col flex-grow text-center lg:text-left">
+                <h3 className="text-xl lg:text-2xl font-black mb-3 text-slate-900 dark:text-white font-heading uppercase">{title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 font-medium mb-6 leading-relaxed italic text-sm lg:text-base">
                     {description}
                 </p>
                 <div className="mt-auto">
@@ -60,9 +60,9 @@ const ProductCard = ({ title, description, details, image, index }) => {
 
 const Products = () => {
     return (
-        <Section id="products">
-            <div className="text-center mb-12 lg:mb-24 px-6">
-                <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+        <Section id="products" className="px-0">
+            <div className="text-center mb-10 lg:mb-12 px-6">
+                <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                     Industrial Capabilities
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading uppercase tracking-tight">
@@ -72,7 +72,7 @@ const Products = () => {
 
             <div className="max-w-7xl mx-auto">
                 {/* Desktop Grid */}
-                <div className="hidden md:grid grid-cols-3 gap-10">
+                <div className="hidden md:grid grid-cols-3 gap-10 px-6 lg:px-0">
                     <ProductCard
                         index={0}
                         title="Commercial Printing"

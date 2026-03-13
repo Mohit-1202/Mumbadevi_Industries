@@ -15,7 +15,7 @@ const Section = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={cn("relative lg:min-h-[100svh] h-fit flex items-center justify-center overflow-hidden", className)}
+            className={cn("relative lg:h-screen h-fit flex items-center justify-center overflow-hidden", className)}
         >
             {showBackdrop && (
                 <div className="absolute inset-0 z-0 opacity-[0.07] dark:opacity-[0.03] pointer-events-none">
@@ -26,7 +26,7 @@ const Section = ({
                     />
                 </div>
             )}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 lg:py-32">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 lg:py-16">
                 {children}
             </div>
         </motion.section>

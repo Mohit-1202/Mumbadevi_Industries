@@ -13,9 +13,9 @@ import Footer from './components/layout/Footer';
 const StackingSection = ({ children, zIndex }) => (
   <motion.div
     style={{ zIndex }}
-    className="relative lg:sticky lg:top-0 w-full lg:min-h-[100svh] bg-[var(--background)] lg:shadow-[0_-20px_50px_rgba(0,0,0,0.15)] lg:dark:shadow-[0_-20px_50px_rgba(0,0,0,0.5)] lg:rounded-t-[3rem] lg:overflow-hidden lg:border-t lg:border-slate-200/50 lg:dark:border-white/5"
+    className="relative lg:sticky lg:top-0 w-full lg:h-screen bg-[var(--background)] lg:shadow-[0_-20px_50px_rgba(0,0,0,0.15)] lg:dark:shadow-[0_-20px_50px_rgba(0,0,0,0.5)] lg:rounded-t-[3rem] lg:overflow-hidden lg:border-t lg:border-slate-200/50 lg:dark:border-white/5"
   >
-    <div className="w-full h-full lg:max-h-screen lg:overflow-y-auto">
+    <div className="w-full h-full">
       {children}
     </div>
   </motion.div>
