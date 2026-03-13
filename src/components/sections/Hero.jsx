@@ -35,7 +35,7 @@ const Hero = () => {
     };
 
     return (
-        <Section id="home" className="lg:h-screen h-fit min-h-screen flex items-center justify-center p-0 pt-32 lg:pt-0 overflow-hidden" showBackdrop={true}>
+        <Section className="lg:h-screen h-fit min-h-screen flex items-center justify-center p-0 pt-32 lg:pt-0 overflow-hidden bg-white dark:bg-dark-bg transition-colors duration-500" showBackdrop={true}>
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 <motion.div
                     variants={containerVariants}

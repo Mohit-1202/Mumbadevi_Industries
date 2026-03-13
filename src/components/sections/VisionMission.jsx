@@ -25,7 +25,7 @@ const VisionCard = ({ title, content, icon: Icon }) => (
 
 const VisionMission = () => {
     return (
-        <Section id="vision" className="bg-bg-light dark:bg-dark-bg/50 px-0">
+        <Section className="bg-bg-light dark:bg-dark-bg/50 px-0 transition-colors duration-500">
             <div className="text-center mb-10 lg:mb-12 px-6">
                 <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                     Purpose & Goals

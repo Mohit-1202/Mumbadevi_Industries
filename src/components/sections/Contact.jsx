@@ -14,7 +14,7 @@ const Contact = () => {
     };
 
     return (
-        <Section id="contact" className="bg-bg-light dark:bg-dark-bg/50">
+        <Section className="bg-bg-light dark:bg-dark-bg/50 transition-colors duration-500">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}

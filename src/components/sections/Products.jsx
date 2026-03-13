@@ -60,7 +60,7 @@ const ProductCard = ({ title, description, details, image, index }) => {
 
 const Products = () => {
     return (
-        <Section id="products" className="px-0">
+        <Section className="px-0 bg-white dark:bg-dark-bg transition-colors duration-500">
             <div className="text-center mb-10 lg:mb-12 px-6">
                 <div className="inline-block px-4 py-1.5 mb-3 lg:mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                     Industrial Capabilities

@@ -15,7 +15,7 @@ const Section = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={cn("relative lg:h-screen h-fit flex items-center justify-center overflow-hidden", className)}
+            className={cn("relative lg:h-screen h-fit flex items-center justify-center overflow-hidden scroll-mt-20 lg:scroll-mt-0", className)}
         >
             {showBackdrop && (
                 <div className="absolute inset-0 z-0 opacity-[0.07] dark:opacity-[0.03] pointer-events-none">
