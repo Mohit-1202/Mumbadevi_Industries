@@ -10,11 +10,32 @@ const Footer = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const scrollToSection = (e, href, index) => {
+        e.preventDefault();
+        if (window.innerWidth >= 1024) {
+            window.scrollTo({
+                top: index * window.innerHeight,
+                behavior: 'smooth'
+            });
+        } else {
+            const element = document.querySelector(href);
+            if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - offset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+
     const socials = [
-        { Icon: Linkedin, href: "#" },
-        { Icon: Twitter, href: "#" },
-        { Icon: Instagram, href: "#" },
-        { Icon: Facebook, href: "#" },
+        { Icon: Linkedin, href: "https://linkedin.com/company/mumbadevi-industries" },
+        { Icon: Twitter, href: "https://twitter.com/mumbadevi_ind" },
+        { Icon: Instagram, href: "https://instagram.com/mumbadevi_industries" },
+        { Icon: Facebook, href: "https://facebook.com/mumbadeviindustries" },
     ];
 
     return (
@@ -41,7 +62,7 @@ const Footer = () => {
                         </p>
                         <div className="flex justify-center lg:justify-start gap-4">
                             {socials.map((social, idx) => (
-                                <a key={idx} href={social.href} className="w-12 h-12 lg:w-14 lg:h-14 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-2xl flex items-center justify-center text-slate-600 dark:text-white hover:bg-primary hover:border-primary hover:text-white hover:scale-110 shadow-lg transition-all duration-300">
+                                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 lg:w-14 lg:h-14 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-2xl flex items-center justify-center text-slate-600 dark:text-white hover:bg-primary hover:border-primary hover:text-white hover:scale-110 shadow-lg transition-all duration-300">
                                     <social.Icon size={20} />
                                 </a>
                             ))}
@@ -51,10 +72,10 @@ const Footer = () => {
                     <div className="flex flex-col items-center lg:items-start">
                         <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-8 font-heading">{t('footer.nav')}</h4>
                         <ul className="space-y-4 text-base font-semibold text-slate-500 dark:text-white/60">
-                            <li><a href="#home" className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.home')}</a></li>
-                            <li><a href="#about" className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.about')}</a></li>
-                            <li><a href="#products" className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.products')}</a></li>
-                            <li><a href="#infrastructure" className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.infrastructure')}</a></li>
+                            <li><a href="#home" onClick={(e) => scrollToSection(e, '#home', 0)} className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.home')}</a></li>
+                            <li><a href="#about" onClick={(e) => scrollToSection(e, '#about', 1)} className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.about')}</a></li>
+                            <li><a href="#products" onClick={(e) => scrollToSection(e, '#products', 3)} className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.products')}</a></li>
+                            <li><a href="#infrastructure" onClick={(e) => scrollToSection(e, '#infrastructure', 4)} className="hover:text-primary dark:hover:text-white transition-all hover:translate-x-2 inline-block duration-300">{t('nav.infrastructure')}</a></li>
                         </ul>
                     </div>
 
@@ -77,8 +98,8 @@ const Footer = () => {
                 <div className="pt-12 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-white/20">
                     <div>© {new Date().getFullYear()} Mumbadevi Industries. {t('footer.copy')}</div>
                     <div className="flex gap-10">
-                        <a href="#" className="hover:text-primary dark:hover:text-white/60 transition-colors">{t('footer.privacy')}</a>
-                        <a href="#" className="hover:text-primary dark:hover:text-white/60 transition-colors">{t('footer.terms')}</a>
+                        <a href="/privacy" className="hover:text-primary dark:hover:text-white/60 transition-colors">{t('footer.privacy')}</a>
+                        <a href="/terms" className="hover:text-primary dark:hover:text-white/60 transition-colors">{t('footer.terms')}</a>
                     </div>
                 </div>
             </div>
